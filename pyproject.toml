@@ -1,0 +1,16 @@
+[build-system]  # paketin nasıl kurulacağını tanımlayan bölüm
+requires = ["setuptools>=68"]  # kurulum için gereken araç (setuptools)
+build-backend = "setuptools.build_meta"  # kurulumu setuptools'un yapacağını söyler
+
+[project]  # paketin kimlik bilgileri
+name = "mlfi"  # paketin adı: kodda "import mlfi" diye kullanacağız
+version = "0.1.0"  # paket sürümü
+description = "Diagnosing why ML models fail"  # kısa açıklama
+requires-python = ">=3.11"  # en az Python 3.11 gerekir
+
+[tool.setuptools.packages.find]  # paket dosyalarının nerede olduğunu söyleyen bölüm
+where = ["src"]  # kodumuz src/ klasörünün içinde
+
+[tool.pytest.ini_options]  # pytest ayarları
+pythonpath = ["src"]  # testler çalışırken src/ klasörünü Python'un arama yoluna ekler
+testpaths = ["tests"]  # testleri sadece tests/ klasöründe arar
